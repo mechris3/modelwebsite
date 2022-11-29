@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { initialiseStore } from './redux/main.actions';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'modelwebsite';
+  constructor(store: Store) {
+    store.dispatch(initialiseStore())
+  }
 }
