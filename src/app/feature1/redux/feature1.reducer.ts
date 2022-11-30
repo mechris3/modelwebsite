@@ -1,13 +1,8 @@
 import { Action, ActionReducer, createReducer, on } from '@ngrx/store';
 import { initialiseFeature1 } from './feature1.actions';
+import { IState } from './feature1.model';
 
-export interface IFeatureDetails {
-    version: string;
-}
-export interface IState {
-    name: string;
-    featureDetails: IFeatureDetails;
-}
+
 
 const initialState: IState = {
     name: 'Feature 1',
