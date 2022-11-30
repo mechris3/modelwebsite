@@ -1,48 +1,20 @@
-
-name: CI / CD for Angular
+name: Build and Deploy
 on:
   push:
-    branches: [ "main" ]
-
+    branches:
+      - main
 jobs:
-  build-and-deploy:
+  build:
+
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-
-      - name: Set up node.js
-        uses: actions/setup-node@v3.3.0
-        with:
-          node-version: '17'
-          cache: 'npm'
-
-      - name: Install dependencies
-        run: npm ci
-
-      # - name: Lint
-      #   run: npm run lint
-
-      # - name: Tests
-      #   run: npm run test:prod
-
-      # - name: Replace secret
-      #   uses: cschleiden/replace-tokens@v1
-      #   with:
-      #     tokenPrefix: '{'
-      #     tokenSuffix: '}'
-      #     files: 'src/environments/environment.prod.ts'
-      #   env:
-      #     SECRET_API_KEY: ${{ secrets.API_KEY}}
-
-      - name: Build
-        run: npm run build:prod
-
-      - name: Deploy to GitHub Pages
-        uses: crazy-max/ghaction-github-pages@v3
-        with:
-          target_branch: gh-pages
-          build_dir: dist/modelwebsite
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
+    - uses: actions/checkout@v2
+    - name: All things angular
+      uses: AhsanAyaz/angular-deploy-gh-pages-actions@[version] ## replace by latest version without it you will see Expected format {org}/{repo}[/path]@ref. Actual 'AhsanAyaz/angular-deploy-gh-pages-actions',Input string was not in a correct format.
+      with:
+        github_access_token: ${{ secrets.ACCESS_TOKEN }} # see the Configuration section for how you can create secrets
+        build_configuration: production # The build environment for the app. please look configurations in your angular.json
+        base_href: /modelwebsite/   # make sure this corresponds to https://<your_username>.github.io/<base_href>/
+        deploy_branch: gh-pages # The branch the action should deploy to.
+        angular_dist_build_folder: dist/modelwebsite # The folder where your project is supposed to be after running ng build by the action.
