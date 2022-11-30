@@ -10,6 +10,6 @@ import { initialiseStore } from './redux/main.actions';
 export class AppComponent {
   title = 'modelwebsite';
   constructor(store: Store) {
-    store.dispatch(initialiseStore())
+    // store.dispatch(initialiseStore())
   }
 }
