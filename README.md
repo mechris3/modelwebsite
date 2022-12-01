@@ -1,5 +1,7 @@
 # Modelwebsite
 
+This provides a skeleton Redux project with routing and lazy loaded modules along with unit tests and end to end tests.
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.1.
 
 ## Development server
