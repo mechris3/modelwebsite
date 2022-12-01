@@ -17,6 +17,5 @@ const _reducer = createReducer(
 );
 
 export function reducer(state: IState | undefined, action: Action) {
-    console.log('in the main reducer;');
     return _reducer(state, action);
 }

@@ -1,22 +1,20 @@
 import { Action, ActionReducer, createReducer, on } from '@ngrx/store';
-import { initialiseFeature1 } from './feature1.actions';
-import { IState } from './feature1.model';
-
-
+import { LoadFeature1DataSuccess } from './feature1.actions';
+import { IAction, IState } from './feature1.model';
 
 const initialState: IState = {
-    name: 'Feature 1',
-    featureDetails: {
-        version: '1.0.0',
-    },
+    name: null,
+    featureDetails: null,
 };
 
 const _reducer = createReducer(
     initialState,
-    on(initialiseFeature1, (state: IState, action: Action) => initialState)
+    on(
+        LoadFeature1DataSuccess,
+        (state: IState, action: IAction) => action.payload
+    )
 );
 
 export function reducer(state: IState | undefined, action: Action) {
-    console.log('in the Feature 1 reducer;');
     return _reducer(state, action);
 }

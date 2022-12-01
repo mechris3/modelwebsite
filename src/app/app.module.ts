@@ -9,6 +9,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { reducer } from './redux/main.reducer';
 
+
 @NgModule({
     declarations: [AppComponent],
     imports: [
