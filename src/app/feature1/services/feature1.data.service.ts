@@ -10,6 +10,6 @@ export class Feature1DataService {
     constructor(protected readonly http: HttpClient) {}
 
     getData(): Observable<IState> {
-        return this.http.get<IState>('/assets/feature1data/data.json');
+        return this.http.get<IState>('assets/feature1data/data.json');
     }
 }
