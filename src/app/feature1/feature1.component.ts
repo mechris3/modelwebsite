@@ -1,5 +1,4 @@
-import { ChangeDetectionStrategy } from '@angular/core';
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { LoadFeature1Data } from './redux/feature1.actions';
 import { feature1Name, feature1Version } from './redux/feature1.selectors';

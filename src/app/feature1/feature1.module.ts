@@ -7,11 +7,12 @@ import { StoreModule } from '@ngrx/store';
 import { reducer } from './redux/feature1.reducer';
 import { EffectsModule } from '@ngrx/effects';
 import { Feature1Effects } from './redux/feature1.effects';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import {  HttpClientModule } from '@angular/common/http';
 import { Feature1DataService } from './services/feature1.data.service';
+import { ComponentComponent } from './components/component/component.component';
 
 @NgModule({
-    declarations: [Feature1Component],
+    declarations: [Feature1Component, ComponentComponent],
     imports: [
         CommonModule,
         HttpClientModule,
