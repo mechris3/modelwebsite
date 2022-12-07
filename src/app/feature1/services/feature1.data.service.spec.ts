@@ -5,6 +5,8 @@ import {
     HttpTestingController,
 } from '@angular/common/http/testing';
 import { Feature1DataService } from './feature1.data.service';
+import { Observable, of } from 'rxjs';
+import { IState } from '../redux/feature1.model';
 
 const MockResponse = {
     name: 'Feature 1',
@@ -47,3 +49,13 @@ describe('Feature1DataService', () => {
         req.flush(MockResponse);
     });
 });
+
+export class MockFeature1DataService {
+    initialState: IState = {
+        name: null,
+        featureDetails: null,
+    };
+    getData(): Observable<IState> {
+        return of(this.initialState)
+    }
+}

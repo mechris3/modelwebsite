@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { map, of, switchMap } from 'rxjs';
+import { map, switchMap } from 'rxjs';
 import { Feature1DataService } from '../services/feature1.data.service';
 import { LoadFeature1Data, LoadFeature1DataSuccess } from './feature1.actions';
 
